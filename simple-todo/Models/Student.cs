@@ -26,8 +26,8 @@ namespace FunctionalApp.Models {
             input1.StudentGender == input2.StudentGender;
 
         public static bool operator !=(Student input1, Student input2) =>
-            input1.StudentName != input2.StudentName &&
-            input1.StudentAge != input2.StudentAge &&
+            input1.StudentName != input2.StudentName ||
+            input1.StudentAge != input2.StudentAge ||
             input1.StudentGender != input2.StudentGender;
         
         public static implicit operator Student(None _) => default(Student);

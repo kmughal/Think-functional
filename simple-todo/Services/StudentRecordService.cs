@@ -12,15 +12,12 @@ namespace FunctionalApp.Service
     {
         public static Students Register { get; } = Students.Create();
 
-        private Option<Student> Add(Name name, Age age, Gender gender)
-        {
-            
-            return Student
-                .Create(name, age, gender)
-                .ToOption()
-                .Map(x=> {Register.Records.Add(x);return x;});
-
-        }
+        private Option<Student> Add(Name name, Age age, Gender gender) =>
+            Student
+            .Create(name, age, gender)
+            .ToOption()
+            .Map(Register.AddNew)
+            .Match((x) => x, () => None.Default);
 
         public Option<Student> AddNewStudent(string firstName, string lastName, int age, string gender)
         {
@@ -42,6 +39,5 @@ namespace FunctionalApp.Service
         public IList<Student> FindByFirstName(string firstName) =>
             Register.Records.Where(s => s.StudentName.FirstName.Contains(firstName)).ToList();
 
-        
     }
 }

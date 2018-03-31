@@ -6,7 +6,7 @@
     public class HomeController : Controller
     {
         private readonly StudentRecordService service = new StudentRecordService();
-        public IActionResult Index() => View();
+        public IActionResult Index() => View(StudentRecordService.Register);
 
         public IActionResult Search() => View();
 

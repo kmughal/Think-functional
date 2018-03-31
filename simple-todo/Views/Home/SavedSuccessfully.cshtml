@@ -1,9 +1,9 @@
 @{
     ViewData["Title"] = "Added successfully";
 }
-@model Todo
+@model FunctionalApp.Models.Student
 <p>
-    Todo has been added successully. The item detail is:
-    <strong>@Model.Text</strong>
+    A new record has been added. The item detail is:
+    <strong>@Model.StudentName.FullName</strong>
     <a asp-action="Index">Go back to home page.</a>
 </p>

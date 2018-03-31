@@ -53,5 +53,10 @@
 
 <div class="clearfix"></div>
 <div class="todos-container">
-   
+    
+   @foreach(var student in Model.Records) {
+       <div>
+        @student.StudentName.FullName is @student.StudentAge.Content old.
+       </div>
+   }
 </div>

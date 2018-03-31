@@ -12,11 +12,12 @@ namespace FunctionalApp.Helpers
 
         public static R Apply<T, R>(this Func<T, R> func, Option<T> opt)
         {
-            if (opt is Some<T> some)
-            {
-                return func(some.Content);
-            }
-            return default(R);
+           var content = opt.Content;
+           var hasValue = opt.HasValue;
+           if (hasValue) {
+               return func(content);
+           }
+           return default(R);
         }
 
         public static Func<T1, Func<T2, Func<T3, R>> > Curry<T1, T2, T3, R>(this AddStudentApply<T1, T2, T3, R> func) => t1 => t2 => t3 => func(t1, t2, t3);

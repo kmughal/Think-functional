@@ -16,7 +16,7 @@ namespace FunctionalApp.Models
             }
 
             private Option<bool> IsStudentExistsAlready(Student student) =>
-                Records.Any(s => s == student);
+                Records.All(s => s != student) ? (Option<bool>)true : None.Default;
 
             public Option<Student> AddNew(Student @new) {
                return IsStudentExistsAlready(@new)
