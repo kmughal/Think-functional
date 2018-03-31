@@ -18,12 +18,8 @@ namespace FunctionalApp.Models
             private Option<bool> IsStudentExistsAlready(Student student) =>
                 Records.All(s => s != student) ? (Option<bool>)true : None.Default;
 
-            public Option<Student> AddNew(Student @new) {
-               return IsStudentExistsAlready(@new)
-                .Map(
-                    x=> { Records.Add(@new);return @new;}
-                );
-             }
+            public Option<Student> AddNew(Student @new) => IsStudentExistsAlready(@new)
+                .Map(x=> { Records.Add(@new);return @new;});
             
             public static Students Create() => new Students();
         }

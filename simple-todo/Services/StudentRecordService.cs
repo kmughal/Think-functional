@@ -21,19 +21,14 @@ namespace FunctionalApp.Service
 
         public Option<Student> AddNewStudent(string firstName, string lastName, int age, string gender)
         {
-
             var optionName = Name.Create(firstName, lastName);
             var optionAge = Age.Create(age);
             var optionGender = Gender.Create(gender);
             AddStudentApply<Name, Age, Gender, Option<Student>> method = Add;
-            var m = method.Curry();
-
-            var outcome = m
+            return method.Curry()
                 .Apply(optionName)
                 .Apply(optionAge)
                 .Apply(optionGender);
-
-            return outcome;
         }
 
         public IList<Student> FindByFirstName(string firstName) =>
