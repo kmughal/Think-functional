@@ -1,4 +1,4 @@
-namespace simple_todo.Commons {
+namespace FunctionalApp.Commons {
     using System;
     
     public class Option<T> {

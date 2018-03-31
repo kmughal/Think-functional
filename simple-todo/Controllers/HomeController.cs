@@ -1,23 +1,23 @@
-﻿namespace simple_todo.Controllers {
+﻿namespace FunctionalApp.Controllers
+{
+    using FunctionalApp.Service;
     using Microsoft.AspNetCore.Mvc;
-    using simple_todo.Services;
 
-    public class HomeController : Controller {
-        private readonly TodoService service = new TodoService();
-        public IActionResult Index() => View(TodoService.Data);
-
-        public IActionResult Edit() => View();
+    public class HomeController : Controller
+    {
+        private readonly StudentRecordService service = new StudentRecordService();
+        public IActionResult Index() => View();
 
         public IActionResult Search() => View();
 
         public IActionResult LookUp(string q) =>
-              View("Search",  service.Find(q));
+            View("Search", service.FindByFirstName(q));
 
         public IActionResult Add() => View();
 
-        public IActionResult SaveNew(string text) =>
+        public IActionResult SaveNew(string firstname, string lastname, int age, string gender) =>
             service
-            .AddNewTodo(text)
+            .AddNewStudent(firstname, lastname, age, gender)
             .Match<IActionResult>(
                 x => View("SavedSuccessfully", x),
                 () => View("Add", "Invalid value")

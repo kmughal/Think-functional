@@ -1,4 +1,4 @@
-namespace simple_todo.Commons
+namespace FunctionalApp.Commons
 {
     public class Some<T> {
         public T Content { get; }

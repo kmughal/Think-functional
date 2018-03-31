@@ -15,8 +15,20 @@
     <form asp-controller="Home" asp-action="SaveNew" method="POST">
         <div>
             <div class="field">
-                <label for="addnew">Todo</label>
-                <input type="text" name="text" id="name"/>
+                <label for="addnew">Firstname</label>
+                <input type="text" name="text" id="firstname"/>
+            </div>
+            <div class="field">
+                <label for="addnew">Lastname</label>
+                <input type="text" name="text" id="lastname"/>
+            </div>
+            <div class="field">
+                <label for="addnew">Age</label>
+                <input type="number" name="text" id="age"/>
+            </div>
+            <div class="field">
+                <label for="addnew">Gender</label>
+                <input type="text" name="text" id="gender"/>
             </div>
             <div class="field">
                 <input class="action" type="submit" value="Save"/>
