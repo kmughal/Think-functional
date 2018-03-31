@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Todos
+<style>
+    
+.option {
+    list-style: none;
+    float:right;
+
+}
+
+.option li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.option li a {
+    text-decoration: none;
+}
+.todos-container {
+    padding:10px 10px;
+    margin:10px 10px;
+    border-top:5px solid royalblue;
+}
+.todos-container div:nth-child(n) {
+    background: white;
+    color:black;
+    padding:10px 10px;
+}
+
+.todos-container div:nth-child(2n) {
+    background: black;
+    color:white;
+    padding:10px 10px;
+}
+
+
+
+</style>
+
+<ul class="option">
+    <li>
+        <a asp-controller="Home" asp-action="Add">Add</a>
+    </li>
+    <li>
+        <a asp-controller="Home" asp-action="Edit">Edit</a>
+    </li>
+    <li>
+        <a asp-controller="Home" asp-action="Search">Search</a>
+    </li>
+</ul>
+
+<div class="clearfix"></div>
+<div class="todos-container">
+    @foreach(var item in Model.ListOfTodos){
+        <div>@item.Text</div>
+    }
+</div>

@@ -1,0 +1,15 @@
+@using System.Collections.Generic
+@model List<Todo>
+
+<h1>Search Results</h1>
+@if(Model != null) {
+    if (Model.Any()) {
+        foreach(var item in Model) {
+            <div>@item.Text</div>
+        }
+    }  
+    else
+     {
+    <div>No record found.</div>
+}
+} 

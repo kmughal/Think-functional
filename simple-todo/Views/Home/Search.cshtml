@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Search";
+}
+@using System.Collections.Generic
+@model List<Todo>
+<style>
+    .search-container {
+        padding: 50px 50px;
+        margin: 10px 10px;
+        background: #FF5722;
+    }
+</style>
+<div class="search-container">
+    <form asp-action="lookup" asp-controller="home">
+    <div class="container">
+        <div>
+            <label>Text</label>
+            <input type="text" name="q" />
+        </div>
+         <div class="field">
+                <input class="action" type="submit" value="Find"/>
+            </div>
+    </div>
+</form>
+</div>
+
+@Html.Partial("SearchResults",Model)
+ 

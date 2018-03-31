@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Add new todo";
+}
+
+ <style>
+     .container label{
+       
+          color:blue;
+     }
+   
+ </style>
+@Model
+<div class="container">
+    <h1> Add new item</h1>
+    <form asp-controller="Home" asp-action="SaveNew" method="POST">
+        <div>
+            <div class="field">
+                <label for="addnew">Todo</label>
+                <input type="text" name="text" id="name"/>
+            </div>
+            <div class="field">
+                <input class="action" type="submit" value="Save"/>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
+

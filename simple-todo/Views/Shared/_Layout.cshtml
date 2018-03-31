@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background: lightblue;
+    }
+      input[type="text"] {
+        width: 90%;
+        padding: 10px 10px;
+        height: 20px;
+        border: 1px solid #e6e6e6;
+        border: radius:20px 20px;
+        border-radius: 20px;
+     }
+
+     .field {
+         padding:10px 10px;
+     }
+
+    .action {
+        float:right;
+        background-color:blueviolet; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .clearfix:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: " ";
+    font-size: 0
+}
+    </style>
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
